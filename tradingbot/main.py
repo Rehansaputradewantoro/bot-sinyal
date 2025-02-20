@@ -13,3 +13,17 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+from payment import process_payment
+
+def handle_payment():
+    user_id = input("Masukkan ID pengguna: ")
+    amount = float(input("Masukkan jumlah pembayaran: "))
+    method = input("Pilih metode pembayaran (Transfer/QRIS/PayPal): ")
+    
+    if process_payment(user_id, amount, method):
+        print("✅ Pembayaran berhasil!")
+    else:
+        print("❌ Pembayaran gagal, coba lagi.")
+
+handle_payment()
