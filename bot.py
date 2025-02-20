@@ -137,7 +137,7 @@ client = pymongo.MongoClient(MONGO_URI); db = client.get_database("trading_bot_d
 
 # Inisialisasi bot Telegram
 
-bot = Bot(token=TELEGRAM_BOT_TOKEN) updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True) dp = updater.dispatcher dp.add_handler(CallbackQueryHandler(button_handler))
+bot = Bot(token=TELEGRAM_BOT_TOKEN); updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True); dp = updater.dispatcher; dp.add_handler(CallbackQueryHandler(button_handler))
 
 # Koneksi ke MetaTrader 5
 
