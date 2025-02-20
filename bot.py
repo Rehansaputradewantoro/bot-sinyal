@@ -1,8 +1,6 @@
 import ccxt
 import requests
 import time
-import MetaTrader5 as mt5
-print(mt5.__version__)
 import pymongo
 
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
