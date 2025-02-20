@@ -14,6 +14,21 @@ MT5_LOGIN = 12345678  # Ganti dengan login akun MT5 Anda
 MT5_PASSWORD = "your_mt5_password"  # Ganti dengan password akun MT5 Anda
 MT5_SERVER = "Exness-MT5Real"  # Ganti dengan server broker Anda
 
+SELECTED_BROKER = "broker1"  # Pastikan ini ada di dalam file
+
+BROKERS = {
+    "broker1": {
+        "login": "123456",
+        "password": "password123",
+        "server": "broker1-server"
+    },
+    "broker2": {
+        "login": "654321",
+        "password": "password456",
+        "server": "broker2-server"
+    }
+}
+
 BROKERS = {
     "broker1": {
         "login": "123456",
