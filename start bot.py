@@ -42,3 +42,21 @@ def start_bot():
 
 if __name__ == "__main__":
     start_bot()
+
+import subprocess
+import logging
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
+
+def start_bot():
+    logging.info("🚀 Memulai bot dan notifikasi jam pasar forex...")
+    processes = [
+        subprocess.Popen(["python", "main.py"]),
+        subprocess.Popen(["python", "market_hours.py"])  # Tambahkan fitur jam pasar
+    ]
+
+    for process in processes:
+        process.wait()
+
+if __name__ == "__main__":
+    start_bot()
