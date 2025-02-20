@@ -19,3 +19,20 @@ updater.idle()
 
 if name == "main": main()
 
+from telegram.ext import Updater
+from text import add_text_handlers  # Import dari text.py
+
+TELEGRAM_BOT_TOKEN = "your_telegram_bot_token"
+
+def main():
+    updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True)
+    dp = updater.dispatcher
+
+    # Tambahkan handler dari text.py
+    add_text_handlers(dp)
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
