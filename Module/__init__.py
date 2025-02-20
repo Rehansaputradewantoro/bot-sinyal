@@ -1,4 +1,6 @@
-init.py
+from .buttons import get_main_menu from .gban import gban, ungban from .absen import absen, cek_absen from .broadcast import broadcast_message
+
+def initialize(): print("All modules successfully loaded!")
 
 import logging from .config import config
 
