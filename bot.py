@@ -98,7 +98,18 @@ dp.add_handler(CallbackQueryHandler(button_handler))
 
 updater.start_polling()
 
-while True: for symbol in SYMBOLS: price = get_latest_price(symbol) buttons = [[InlineKeyboardButton("BUY", callback_data="buy"), InlineKeyboardButton("SELL", callback_data="sell")], [InlineKeyboardButton("OWNER", callback_data="owner"), InlineKeyboardButton("PAYMENT", callback_data="payment")]] send_telegram_message(f"📊 Sinyal trading untuk {symbol}: {price}", buttons) time.sleep(INTERVAL)
+while True:
+    for symbol in SYMBOLS:
+        price = get_latest_price(symbol)
+
+        buttons = [
+            [InlineKeyboardButton("BUY", callback_data="buy"), InlineKeyboardButton("SELL", callback_data="sell")], 
+            [InlineKeyboardButton("OWNER", callback_data="owner"), InlineKeyboardButton("PAYMENT", callback_data="payment")]
+        ] 
+        
+        send_telegram_message(f"📊 Sinyal trading untuk {symbol}: {price}", buttons)
+
+        time.sleep(INTERVAL)
 
 import os 
 import ccxt 
