@@ -116,8 +116,8 @@ import ccxt
 import time
 import requests
 import pymongo as mt5 
-import pymongo from telegram 
-import Bot, InlineKeyboardButton, InlineKeyboardMarkup 
+import pymongo
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
 
 # Import semua modul yang ada dalam proyek
