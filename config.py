@@ -1,8 +1,3 @@
-# Konfigurasi MetaTrader 5
-MT5_LOGIN = 12345678  # Ganti dengan login akun MT5 Anda
-MT5_PASSWORD = "your_mt5_password"  # Ganti dengan password akun MT5 Anda
-MT5_SERVER = "Exness-MT5Real"  # Ganti dengan server broker Anda
-
 # Konfigurasi Telegram
 TELEGRAM_BOT_TOKEN = "7877517758:AAHm0ZdmAj3dHxqbPMmz9AyhqkstVu9K4no"
 TELEGRAM_CHAT_ID = "-1002451875261"
@@ -18,6 +13,19 @@ DATABASE_NAME = "trading_bot_db"
 MT5_LOGIN = 12345678  # Ganti dengan login akun MT5 Anda
 MT5_PASSWORD = "your_mt5_password"  # Ganti dengan password akun MT5 Anda
 MT5_SERVER = "Exness-MT5Real"  # Ganti dengan server broker Anda
+
+BROKERS = {
+    "broker1": {
+        "login": "123456",
+        "password": "password123",
+        "server": "broker1-server"
+    },
+    "broker2": {
+        "login": "654321",
+        "password": "password456",
+        "server": "broker2-server"
+    }
+}
 
 # Daftar simbol trading
 SYMBOLS = ["XAUUSD", "EURUSD", "BTCUSD"]
