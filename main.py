@@ -12,3 +12,14 @@ def main(): logger.info("Memulai bot...") start_bot()
 
 if name == "main": main()
 
+import logging from bot import start_bot
+
+Konfigurasi logging
+
+logging.basicConfig(level=logging.INFO) logger = logging.getLogger(name)
+
+def main(): logger.info("Memulai bot...") start_bot()
+
+if name == "main": main()
+
+
