@@ -26,7 +26,7 @@ db = client["nama_database"]  # Ganti dengan nama database yang sesuai
 
 client = pymongo.MongoClient(MONGO_URI); db = client.get_database("trading_bot_db")
 
-Konfigurasi MT5
+""" Konfigurasi MT5 """
 
 MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"] MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"] MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
 
