@@ -113,9 +113,9 @@ while True:
 
 import os 
 import ccxt 
-import requests 
-import time import 
-MetaTrader5 as mt5 
+import time
+import requests
+import pymongo as mt5 
 import pymongo from telegram 
 import Bot, InlineKeyboardButton, InlineKeyboardMarkup 
 from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
