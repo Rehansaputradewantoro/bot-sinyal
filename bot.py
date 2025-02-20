@@ -33,14 +33,21 @@ MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"]
 MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"]
 MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
 
-def connect_mt5():
-    if not print("MT5_LOGIN:", MT5_LOGIN)
+print("MT5_LOGIN:", MT5_LOGIN)
 print("MT5_PASSWORD:", MT5_PASSWORD)
 print("MT5_SERVER:", MT5_SERVER)
-        print(f"Gagal menghubungkan ke {SELECTED_BROKER} di MetaTrader 5")
-        mt5.shutdown()
-    else:
-        print(f"Berhasil terhubung ke {SELECTED_BROKER} di MetaTrader 5")
+
+print("MT5_LOGIN:", MT5_LOGIN)
+print("MT5_PASSWORD:", MT5_PASSWORD)
+print("MT5_SERVER:", MT5_SERVER)
+
+if not print("MT5_LOGIN:", MT5_LOGIN), password=MT5_PASSWORD, server=MT5_SERVER):
+    print(f"Gagal menghubungkan ke {SELECTED_BROKER} di MetaTrader 5")
+    mt5.shutdown()
+else:
+    print(f"Berhasil terhubung ke {SELECTED_BROKER} di MetaTrader 5")
+else:
+    print(f"Berhasil terhubung ke {SELECTED_BROKER} di MetaTrader 5")
 
 # Inisialisasi bot Telegram
 
