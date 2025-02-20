@@ -1,4 +1,7 @@
-import os import logging from dotenv import load_dotenv from bot import start_bot
+import os
+import logging
+from dotenv import load_dotenv
+from bot import start_bot
 import time
 from mt5_login import connect_mt5, get_account_info
 from telegram_bot import send_telegram_message
