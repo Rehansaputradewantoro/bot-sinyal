@@ -73,7 +73,19 @@ def get_latest_price(symbol):
 
 # Daftar simbol trading
 
-SYMBOLS = [ "BTC/USDT", "ETH/USDT", "XRP/USDT", "LTC/USDT", "ADA/USDT",  # Crypto pairs "EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "USD/CHF",  # Forex pairs "AAPL", "TSLA", "GOOGL", "MSFT", "AMZN",  # Stock symbols "XAU/USD"  # Gold (XAU/USD) ]
+SYMBOLS = [
+    # Crypto pairs
+    "BTC/USDT", "ETH/USDT", "XRP/USDT", "LTC/USDT", "ADA/USDT",
+
+    # Forex pairs
+    "EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "USD/CHF",
+
+    # Stock symbols
+    "AAPL", "TSLA", "GOOGL", "MSFT", "AMZN",
+
+    # Gold
+    "XAU/USD"
+]
 
 INTERVAL = 60  # detik
 
