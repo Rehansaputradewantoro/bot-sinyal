@@ -8,3 +8,5 @@ numpy==1.26.4
 pandas==2.1.4
 ta==0.10.2
 flask==3.0.0
+MetaTrader5
+python-telegram-bot
