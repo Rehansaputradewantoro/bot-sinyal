@@ -28,7 +28,11 @@ client = pymongo.MongoClient(MONGO_URI); db = client.get_database("trading_bot_d
 
 """ Konfigurasi MT5 """
 
-MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"] MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"] MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
+MT5_LOGIN, MT5_PASSWORD, MT5_SERVER = (
+    BROKERS[SELECTED_BROKER]["login"],
+    BROKERS[SELECTED_BROKER]["password"],
+    BROKERS[SELECTED_BROKER]["server"],
+)
 
 def connect_mt5(): if not mt5.initialize(login=MT5_LOGIN, password=MT5_PASSWORD, server=MT5_SERVER): print(f"Gagal menghubungkan ke {SELECTED_BROKER} di MetaTrader 5") mt5.shutdown() else: print(f"Berhasil terhubung ke {SELECTED_BROKER} di MetaTrader 5")
 
