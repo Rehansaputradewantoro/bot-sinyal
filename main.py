@@ -1,4 +1,24 @@
 import os import logging from dotenv import load_dotenv from bot import start_bot
+import time
+from mt5_login import connect_mt5, get_account_info
+from telegram_bot import send_telegram_message
+from database import save_trade
+
+SYMBOLS = ["XAU/USD", "EUR/USD", "BTC/USDT"]  # Daftar simbol trading
+INTERVAL = 60  # Waktu update dalam detik
+
+if __name__ == "__main__":
+    if connect_mt5():
+        send_telegram_message("✅ Bot trading telah dimulai!")
+        
+        while True:
+            account_info = get_account_info()
+            if account_info:
+                message = f"💰 Balance: {account_info['balance']}\n📊 Equity: {account_info['equity']}\n📈 Free Margin: {account_info['margin_free']}"
+                send_telegram_message(message)
+                save_trade(account_info)
+            
+            time.sleep(INTERVAL)
 
 Memuat variabel dari file .env
 
