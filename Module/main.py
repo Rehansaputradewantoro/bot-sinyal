@@ -91,3 +91,12 @@ def send_market_hours():
 
 # Kirim info pasar saat bot aktif
 send_market_hours()
+
+from forex_factory import send_forex_news
+
+def send_market_analysis():
+    """Mengirim analisa forex secara otomatis."""
+    send_forex_news()
+
+# Kirim info analisa saat bot aktif
+send_market_analysis()
