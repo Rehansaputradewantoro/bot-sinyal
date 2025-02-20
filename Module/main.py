@@ -36,3 +36,27 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+from telegram.ext import Updater
+from text import add_text_handlers
+from buttons import add_button_handlers
+from broadcast import add_broadcast_handlers
+from gban import add_gban_handlers
+
+TELEGRAM_BOT_TOKEN = "your_telegram_bot_token"
+
+def main():
+    updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True)
+    dp = updater.dispatcher
+
+    # Tambahkan handler dari semua script
+    add_text_handlers(dp)
+    add_button_handlers(dp)
+    add_broadcast_handlers(dp)
+    add_gban_handlers(dp)
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
