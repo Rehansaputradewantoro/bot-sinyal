@@ -1,18 +1,23 @@
-FROM python:3.9
+FROM python:3.11
 
 Set working directory
 
 WORKDIR /app
 
-Copy project files
+Copy all necessary files
 
 COPY . /app
 
 Install dependencies
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip 
+&& pip install -r requirements.txt
 
-Command to run the bot
+Set environment variables
 
-CMD ["python", "bot.py"]
+ENV PYTHONUNBUFFERED=1
+
+Run the bot
+
+CMD ["python", "main.py"]
 
