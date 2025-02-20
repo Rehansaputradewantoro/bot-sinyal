@@ -1,0 +1,8 @@
+version: '3.8'
+
+services: bot: image: python:3.11  
+  # Menggunakan image resmi Python 3.11 
+  container_name: bot_sinyal working_dir: /app volumes: - .:/app  
+  # Mounting kode sumber ke dalam container environment: - PYTHONUNBUFFERED=1  
+  # Menjaga log tetap real-time command: ["python", "bot.py"] restart: unless-stopped
+
