@@ -13,9 +13,9 @@ from config import (
     API_ID,
     API_HASH,
     MONGO_URI,
-    BROKERS,
-    SELECTED_BROKER
 )
+from config import SELECTED_BROKER
+print(SELECTED_BROKER)
 
 # Koneksi ke MongoDB
 from pymongo import MongoClient
