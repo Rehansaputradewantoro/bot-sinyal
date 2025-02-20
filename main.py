@@ -22,4 +22,23 @@ def main(): logger.info("Memulai bot...") start_bot()
 
 if name == "main": main()
 
+# main.py
 
+import sys
+
+# Pastikan script berjalan di Python 3.11
+REQUIRED_PYTHON = (3, 11)
+if sys.version_info[:2] != REQUIRED_PYTHON:
+    sys.exit(f"Error: Script ini membutuhkan Python {REQUIRED_PYTHON[0]}.{REQUIRED_PYTHON[1]}!")
+
+import logging
+
+# Konfigurasi logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def main():
+    logger.info("Script berjalan di Python 3.11 dengan sukses!")
+
+if __name__ == "__main__":
+    main()
