@@ -34,3 +34,27 @@ connect_mt5() updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True) dp =
 
 while True: for symbol in SYMBOLS: price = get_latest_price(symbol) buttons = [[InlineKeyboardButton("BUY", callback_data="buy"), InlineKeyboardButton("SELL", callback_data="sell")], [InlineKeyboardButton("OWNER", callback_data="owner"), InlineKeyboardButton("PAYMENT", callback_data="payment")]] send_telegram_message(f"📊 Sinyal trading untuk {symbol}: {price}", buttons) time.sleep(INTERVAL)
 
+import os import ccxt import requests import time import MetaTrader5 as mt5 import pymongo from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+
+Import semua modul yang ada dalam proyek
+
+from .config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, OWNER_ID, API_ID, API_HASH, MONGO_URI, BROKERS, SELECTED_BROKER from .buttons import button_handler from .helpers import send_telegram_message, get_latest_price, connect_mt5 from .broadcast import broadcast_message from .gban import global_ban
+
+Inisialisasi MongoDB
+
+client = pymongo.MongoClient(MONGO_URI) db = client.get_database("trading_bot_db")
+
+Inisialisasi bot Telegram
+
+bot = Bot(token=TELEGRAM_BOT_TOKEN) updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True) dp = updater.dispatcher dp.add_handler(CallbackQueryHandler(button_handler))
+
+Koneksi ke MetaTrader 5
+
+connect_mt5()
+
+Mulai bot Telegram
+
+updater.start_polling()
+
+print("Bot trading telah berjalan dengan sukses!")
+
