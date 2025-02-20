@@ -49,7 +49,19 @@ def send_telegram_message(message, buttons=None):
     reply_markup = InlineKeyboardMarkup(buttons) if buttons else None  
     bot.send_message(chat_id=TELEGRAM_CHAT_ID, text=message, reply_markup=reply_markup)
 
-def button_handler(update, context): query = update.callback_query query.answer() command = query.data messages = { "buy": "📈 Membuka posisi BUY", "sell": "📉 Membuka posisi SELL", "owner": f"👑 Owner ID: {OWNER_ID}", "payment": "💳 Silakan lakukan pembayaran di sini: your_payment_link" } send_telegram_message(messages.get(command, "Perintah tidak dikenal."))
+def button_handler(update, context):  
+    query = update.callback_query  
+    query.answer()  
+    command = query.data  
+
+    messages = {  
+        "buy": "📈 Membuka posisi BUY",  
+        "sell": "📉 Membuka posisi SELL",  
+        "owner": f"👑 Owner ID: {OWNER_ID}",  
+        "payment": "💳 Silakan lakukan pembayaran di sini: your_payment_link"  
+    }  
+
+    send_telegram_message(messages.get(command, "Perintah tidak dikenal."))
 
 Inisialisasi CCXT
 
