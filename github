@@ -1,0 +1,49 @@
+1. Clone Repository:
+
+git clone https://github.com/yourusername/trading_bot.git
+cd trading_bot
+
+
+2. Buat Branch Baru untuk Fitur atau Perbaikan:
+
+git checkout -b feature-branch-name
+
+
+3. Lakukan Perubahan dan Commit:
+
+git add .
+git commit -m "Deskripsi perubahan yang dilakukan"
+
+
+4. Push Branch ke GitHub:
+
+git push origin feature-branch-name
+
+
+5. Buat Pull Request (PR) melalui GitHub:
+
+Buka repository di GitHub.
+
+Klik tab "Pull Requests".
+
+Klik "New Pull Request" dan pilih branch yang baru dibuat.
+
+Tambahkan deskripsi perubahan dan klik "Create Pull Request".
+
+
+
+6. Review dan Merge PR:
+
+Tunggu review dari tim atau lakukan self-review.
+
+Setelah PR disetujui, klik "Merge Pull Request".
+
+
+
+7. Hapus Branch yang Sudah Digunakan:
+
+git branch -d feature-branch-name
+git push origin --delete feature-branch-name
+
+
+
