@@ -32,7 +32,6 @@ from config import BROKERS, SELECTED_BROKER  # Impor bersamaan
 MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"]
 MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"]
 MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
-)
 
 def connect_mt5():
     if not mt5.initialize(login=MT5_LOGIN, password=MT5_PASSWORD, server=MT5_SERVER):
