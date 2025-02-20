@@ -32,3 +32,40 @@ def help_command(update: Update, context: CallbackContext):
 def add_text_handlers(dispatcher):
     dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_text))
     dispatcher.add_handler(CommandHandler("help", help_command))
+
+import openai
+from telegram import Update
+from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackContext
+
+# Konfigurasi OpenAI API (Masukkan API Key Anda)
+OPENAI_API_KEY = "your_openai_api_key"
+openai.api_key = OPENAI_API_KEY
+
+def handle_text(update: Update, context: CallbackContext):
+    """Menangani semua pesan teks dan memberikan respons AI otomatis."""
+    user_text = update.message.text
+
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": user_text}]
+        )
+        ai_reply = response["choices"][0]["message"]["content"]
+
+    except Exception:
+        ai_reply = "⚠️ Maaf, saya mengalami kesalahan saat memproses permintaan Anda."
+
+    update.message.reply_text(ai_reply)
+
+def help_command(update: Update, context: CallbackContext):
+    help_text = """
+🛠 **Perintah Tersedia**:
+- `/start` : Mulai bot
+- `/help` : Lihat semua perintah
+- **Chat AI**: Ketik apa saja untuk mendapatkan jawaban AI
+    """
+    update.message.reply_text(help_text)
+
+def add_text_handlers(dispatcher):
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_text))
+    dispatcher.add_handler(CommandHandler("help", help_command))
