@@ -133,7 +133,7 @@ from .gban import global_ban
 
 # Inisialisasi MongoDB
 
-client = pymongo.MongoClient(MONGO_URI) db = client.get_database("trading_bot_db")
+client = pymongo.MongoClient(MONGO_URI); db = client.get_database("trading_bot_db")
 
 # Inisialisasi bot Telegram
 
