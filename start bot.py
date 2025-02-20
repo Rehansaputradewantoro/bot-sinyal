@@ -12,3 +12,5 @@ Jalankan bot
 
 python bot.py
 
+chmod +x start_bot.sh  # Memberikan izin eksekusi
+./start_bot.sh
