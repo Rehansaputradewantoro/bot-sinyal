@@ -63,7 +63,7 @@ def button_handler(update, context):
 
     send_telegram_message(messages.get(command, "Perintah tidak dikenal."))
 
-Inisialisasi CCXT
+# Inisialisasi CCXT
 
 exchange = ccxt.binance()
 
