@@ -72,3 +72,22 @@ def button_handler(update, context):
         scalping()
     elif command == "stop_scalping":
         send_telegram_message("⛔ Scalping dihentikan.")
+
+from market_hours import get_market_status
+from telegram import Bot
+
+# Konfigurasi bot Telegram
+TELEGRAM_BOT_TOKEN = "your_telegram_bot_token"
+bot = Bot(token=TELEGRAM_BOT_TOKEN)
+
+def send_market_hours():
+    """Mengirim info jam pasar ke Telegram"""
+    market_status = get_market_status()
+    message = "📊 **Jam Pasar Forex Saat Ini:**\n"
+    for market, status in market_status.items():
+        message += f"✅ {market}: {status}\n"
+
+    bot.send_message(chat_id="your_chat_id", text=message)
+
+# Kirim info pasar saat bot aktif
+send_market_hours()
