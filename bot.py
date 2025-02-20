@@ -41,7 +41,7 @@ def connect_mt5():
     else:
         print(f"Berhasil terhubung ke {SELECTED_BROKER} di MetaTrader 5")
 
-Inisialisasi bot Telegram
+# Inisialisasi bot Telegram
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN)
 
