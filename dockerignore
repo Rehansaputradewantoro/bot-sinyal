@@ -1,0 +1,2 @@
+pycache/ *.pyc *.pyo *.pyd .env .DS_Store .vscode/ .idea/ init.pyc logs/ db.sqlite3 venv/ *.log
+
