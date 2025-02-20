@@ -1,9 +1,6 @@
-touch bot.py requirements.txt
-echo "ccxt\nrequests\npymongo\nMetaTrader5\npython-telegram-bot" > requirements.txt
 python-telegram-bot
 ccxt
 requests
 pymongo
 MetaTrader5
 dotenv
-
