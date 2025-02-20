@@ -1,5 +1,14 @@
 #!/bin/bash
 
+while true
+do
+    echo "🚀 Menjalankan bot..."
+    python3.11 main.py
+
+    echo "⚠️ Bot berhenti! Restart dalam 5 detik..."
+    sleep 5
+done
+
 echo "🚀 Memulai semua script Python 3.11..."
 
 # Cek apakah Python 3.11 tersedia
@@ -28,3 +37,4 @@ python3.11 auto_trading.py &
 
 echo "✅ Semua script berjalan di background!"
 echo
+
