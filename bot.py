@@ -18,7 +18,11 @@ from config import (
     SELECTED_BROKER
 )
 
-Koneksi MongoDB
+# Koneksi ke MongoDB
+from pymongo import MongoClient
+
+client = MongoClient(MONGO_URI)  # Gunakan MONGO_URI yang sudah di-import
+db = client["nama_database"]  # Ganti dengan nama database yang sesuai
 
 client = pymongo.MongoClient(MONGO_URI) db = client.get_database("trading_bot_db")
 
