@@ -62,3 +62,61 @@ def main():
 
 if __name__ == "__main__":
     main()
+import time
+from mt5_connection import connect_mt5, get_account_info
+from config import SYMBOLS
+
+def get_market_price(symbol):
+    """Mendapatkan harga terkini dari simbol"""
+    tick = mt5.symbol_info_tick(symbol)
+    if tick:
+        return tick.bid, tick.ask
+    return None, None
+
+def open_trade(symbol, lot, trade_type):
+    """Membuka posisi BUY atau SELL"""
+    price = get_market_price(symbol)
+    if not price:
+        print(f"❌ Gagal mendapatkan harga untuk {symbol}")
+        return False
+
+    action = mt5.ORDER_TYPE_BUY if trade_type == "buy" else mt5.ORDER_TYPE_SELL
+    order_request = {
+        "action": mt5.TRADE_ACTION_DEAL,
+        "symbol": symbol,
+        "volume": lot,
+        "type": action,
+        "price": price[0] if trade_type == "buy" else price[1],
+        "sl": 0.0,
+        "tp": 0.0,
+        "deviation": 10,
+        "magic": 123456,
+        "comment": "Trade bot",
+        "type_time": mt5.ORDER_TIME_GTC,
+        "type_filling": mt5.ORDER_FILLING_IOC,
+    }
+
+    result = mt5.order_send(order_request)
+    if result.retcode != mt5.TRADE_RETCODE_DONE:
+        print(f"❌ Order gagal: {result.comment}")
+        return False
+
+    print(f"✅ Order berhasil! {trade_type.upper()} {symbol} @ {result.price}")
+    return True
+
+if __name__ == "__main__":
+    if connect_mt5():
+        print("📊 Mendapatkan informasi akun...")
+        account_info = get_account_info()
+        if account_info:
+            print(f"💰 Saldo: {account_info['balance']}, Equity: {account_info['equity']}")
+
+        while True:
+            for symbol in SYMBOLS:
+                bid, ask = get_market_price(symbol)
+                if bid and ask:
+                    print(f"📈 {symbol} - Bid: {bid}, Ask: {ask}")
+
+            time.sleep(10)  # Update harga setiap 10 detik
+
+        mt5.shutdown()
