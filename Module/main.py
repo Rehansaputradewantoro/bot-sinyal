@@ -60,3 +60,15 @@ def main():
 
 if __name__ == "__main__":
     main()
+from scalping import scalping
+
+def button_handler(update, context):
+    query = update.callback_query
+    query.answer()
+    command = query.data
+
+    if command == "start_scalping":
+        send_telegram_message("🚀 Memulai scalping otomatis...")
+        scalping()
+    elif command == "stop_scalping":
+        send_telegram_message("⛔ Scalping dihentikan.")
