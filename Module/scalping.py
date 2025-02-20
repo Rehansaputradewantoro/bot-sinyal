@@ -59,3 +59,5 @@ def generate_signal(symbol):
     return None
 
 # Fungsi utama untuk scalping
+[[InlineKeyboardButton("⚡ Mulai Scalping", callback_data="start_scalping"),
+  InlineKeyboardButton("⛔ Stop Scalping", callback_data="stop_scalping")]]
