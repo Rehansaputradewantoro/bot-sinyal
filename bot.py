@@ -1,4 +1,22 @@
-import ccxt import requests import time import MetaTrader5 as mt5 import pymongo from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup from telegram.ext import Updater, CommandHandler, CallbackQueryHandler from config import TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, OWNER_ID, API_ID, API_HASH, MONGO_URI, BROKERS, SELECTED_BROKER
+import ccxt
+import requests
+import time
+import MetaTrader5 as mt5
+import pymongo
+
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, CallbackQueryHandler
+
+from config import (
+    TELEGRAM_BOT_TOKEN,
+    TELEGRAM_CHAT_ID,
+    OWNER_ID,
+    API_ID,
+    API_HASH,
+    MONGO_URI,
+    BROKERS,
+    SELECTED_BROKER
+)
 
 Koneksi MongoDB
 
