@@ -26,3 +26,15 @@ updater.idle()
 
 if name == "main": main()
 
+from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update from telegram.ext import CallbackContext from .main import start  # Menghubungkan main.py ke init.py
+
+def get_main_menu(): keyboard = [ [InlineKeyboardButton("▶️ Start", callback_data="start")], [InlineKeyboardButton("ℹ️ Help", callback_data="help")], [InlineKeyboardButton("👤 Owner", callback_data="owner")], [InlineKeyboardButton("💳 Payment", callback_data="payment")], ] return InlineKeyboardMarkup(keyboard)
+
+def help_command(update: Update, context: CallbackContext): update.message.reply_text("This is the help section. Use the buttons to navigate.")
+
+def owner_info(update: Update, context: CallbackContext): update.message.reply_text("Owner: @YourUsername")
+
+def payment_info(update: Update, context: CallbackContext): update.message.reply_text("To make a payment, visit: https://yourpaymentlink.com")
+
+all = ["start", "get_main_menu", "help_command", "owner_info", "payment_info"]
+
