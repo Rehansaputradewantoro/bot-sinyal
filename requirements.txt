@@ -1,6 +1,10 @@
-python-telegram-bot
-ccxt
-requests
-pymongo
-MetaTrader5
-dotenv
+python-telegram-bot==20.3
+ccxt==4.0.97
+requests==2.31.0
+pymongo==4.6.1
+MetaTrader5==5.0.37
+python-dotenv==1.0.1
+numpy==1.26.4
+pandas==2.1.4
+ta==0.10.2
+flask==3.0.0
