@@ -33,6 +33,8 @@ MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"]
 MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"]
 MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
 
+import MetaTrader5 as mt5
+
 if not mt5.initialize(login=MT5_LOGIN, password=MT5_PASSWORD, server=MT5_SERVER):
     print(f"Gagal menghubungkan ke {SELECTED_BROKER} di MetaTrader 5")
     mt5.shutdown()
