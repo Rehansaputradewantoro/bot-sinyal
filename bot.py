@@ -27,10 +27,11 @@ client = pymongo.MongoClient(MONGO_URI); db = client.get_database("trading_bot_d
 
 """ Konfigurasi MT5 """
 
-MT5_LOGIN, MT5_PASSWORD, MT5_SERVER = (
-    BROKERS[SELECTED_BROKER]["login"],
-    BROKERS[SELECTED_BROKER]["password"],
-    BROKERS[SELECTED_BROKER]["server"],
+from config import BROKERS, SELECTED_BROKER  # Impor bersamaan
+
+MT5_LOGIN = BROKERS[SELECTED_BROKER]["login"]
+MT5_PASSWORD = BROKERS[SELECTED_BROKER]["password"]
+MT5_SERVER = BROKERS[SELECTED_BROKER]["server"]
 )
 
 def connect_mt5():
