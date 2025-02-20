@@ -89,7 +89,14 @@ SYMBOLS = [
 
 INTERVAL = 60  # detik
 
-connect_mt5() updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True) dp = updater.dispatcher dp.add_handler(CallbackQueryHandler(button_handler)) updater.start_polling()
+connect_mt5()
+
+updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True)
+dp = updater.dispatcher
+
+dp.add_handler(CallbackQueryHandler(button_handler))
+
+updater.start_polling()
 
 while True: for symbol in SYMBOLS: price = get_latest_price(symbol) buttons = [[InlineKeyboardButton("BUY", callback_data="buy"), InlineKeyboardButton("SELL", callback_data="sell")], [InlineKeyboardButton("OWNER", callback_data="owner"), InlineKeyboardButton("PAYMENT", callback_data="payment")]] send_telegram_message(f"📊 Sinyal trading untuk {symbol}: {price}", buttons) time.sleep(INTERVAL)
 
@@ -114,7 +121,7 @@ client = pymongo.MongoClient(MONGO_URI) db = client.get_database("trading_bot_db
 
 bot = Bot(token=TELEGRAM_BOT_TOKEN) updater = Updater(token=TELEGRAM_BOT_TOKEN, use_context=True) dp = updater.dispatcher dp.add_handler(CallbackQueryHandler(button_handler))
 
-Koneksi ke MetaTrader 5
+# Koneksi ke MetaTrader 5
 
 connect_mt5()
 
